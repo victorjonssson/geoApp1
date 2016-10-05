@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">geoApp</string>
+    <string name="action_sign_in">Logga in eller registrera</string>
+    <string name="action_sign_in_short">Logga in</string>
+    <string name="error_field_required">Detta fält måste fyllas i </string>
+    <string name="error_incorrect_password">Felaktigt lösenord </string>
+    <string name="error_invalid_email">Emailadressen är felaktig</string>
+    <string name="error_invalid_password">Lösenordet är för kort </string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Lösenord</string>
+    <string name="title_activity_login">Logga in </string>
+    <string name="username">Användarnamn </string>
+    <string name="RegistrateSignIn">Registrera eller logga in</string>
+    <string name="permission_rationale">!!</string>
+    <string name="reportProblem">Rapportera ett problem</string>
+    <string name="help">Hjälp</string>
+    <string name="settings">Inställningar</string>
+    <string name="helpText">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</string>
+    <string name="back">Tillbaka</string>
+    <string name="back2">Tillbaka</string>
+    <string name="backproblem">Tillbaka</string>
+    <string name="backsettings">Tillbaka</string>
+    <string name="report">Rapportera</string>
+</resources>
