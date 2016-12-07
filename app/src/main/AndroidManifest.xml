@@ -36,9 +36,6 @@
         </activity>
         <activity android:name=".ProblemActivity" />
         <activity android:name=".settings" />
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
         <activity android:name=".help"></activity>
     </application>
 

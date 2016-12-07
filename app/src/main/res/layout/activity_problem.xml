@@ -10,41 +10,6 @@
     tools:context="com.example.victor.geoapp.ProblemActivity"
     android:background="#ffffff">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Comment:"
-        android:id="@+id/textComment"
-        android:layout_below="@+id/editProblem"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="52dp"
-        android:textColor="#000000" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editProblem"
-        android:layout_alignTop="@+id/textProblem"
-        android:layout_toRightOf="@+id/textProblem"
-        android:layout_alignRight="@+id/editComment"
-        android:layout_alignEnd="@+id/editComment"
-        android:layout_marginTop="-7dp"/>
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/editComment"
-        android:layout_alignBaseline="@+id/textComment"
-        android:layout_alignBottom="@+id/textComment"
-        android:layout_toRightOf="@+id/textComment"
-        android:layout_toEndOf="@+id/textComment" />
-
     <Button
         android:text="@string/backproblem"
         android:layout_width="wrap_content"
@@ -55,18 +20,6 @@
         android:layout_alignParentStart="true"
         android:onClick="actback" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Problem:"
-        android:id="@+id/textProblem"
-        android:layout_marginTop="21dp"
-        android:textColor="#000000"
-        android:layout_below="@+id/btnBack2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-
     <Button
         android:text="@string/report"
         android:layout_width="wrap_content"
@@ -74,6 +27,43 @@
         android:layout_marginBottom="47dp"
         android:id="@+id/btnReport"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="report" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editComment"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/btnBack2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:hint="Problem" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/editProblem"
+        android:layout_marginTop="27dp"
+        android:hint="Comment"
+        android:layout_below="@+id/editComment"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:layout_marginTop="37dp"
+        android:id="@+id/editMail"
+        android:hint="E-mail"
+        android:layout_below="@+id/editProblem"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
