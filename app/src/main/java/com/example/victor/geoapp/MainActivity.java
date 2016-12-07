@@ -22,7 +22,9 @@ import android.widget.TextView;
 import com.esri.android.map.GraphicsLayer;
 import com.esri.android.map.MapOptions;
 import com.esri.android.map.MapView;
+import com.esri.core.geometry.CoordinateConversion;
 import com.esri.core.geometry.Point;
+import com.esri.core.geometry.SpatialReference;
 import com.esri.core.map.Graphic;
 import com.esri.core.symbol.SimpleMarkerSymbol;
 
@@ -60,14 +62,18 @@ public class MainActivity extends AppCompatActivity {
         // create a point marker symbol (red, size 10, of type circle)
         SimpleMarkerSymbol simpleMarker = new SimpleMarkerSymbol(Color.RED, 10, SimpleMarkerSymbol.STYLE.CIRCLE);
 
+        SpatialReference SP_WGS_84 = SpatialReference.create(102100);
+        Point point = CoordinateConversion.decimalDegreesToPoint("60.66738190754173 17.15213656425476", SP_WGS_84);
+
         // create a point at x=-302557, y=7570663 (for a map using meters as units; this depends         // on the spatial reference)
         //detta är i ett metersystem (gps (WGS84))
         //hämta kordinaterna från http://twcc.fr
-        Point pointGeometry = new Point(-1909457.44, 8549477.86);
+
+        //Point pointGeometry = new Point(-1909457.44, 8549477.86);
 
         // create a graphic with the geometry and marker symbol
         //använd den pin samt vilken punkt du valt för att sakpa ett graphiskt objekt
-        Graphic pointGraphic = new Graphic(pointGeometry, simpleMarker);
+        Graphic pointGraphic = new Graphic(point, simpleMarker);
 
         // add the graphic to the graphics layer
         //lägg till det graphiska objektet i ditt lager
@@ -143,7 +149,7 @@ public class MainActivity extends AppCompatActivity {
     private void updateWithNewLocation(Location loc){
         //hämta textview från layout
         TextView myLocationText;
-        myLocationText = (TextView)findViewById(R.id.myLocationText);
+        //myLocationText = (TextView)findViewById(R.id.m);
         //skapa text till min textview
         String latlongText = "No location found";
         //om vi fått någon location
@@ -155,7 +161,7 @@ public class MainActivity extends AppCompatActivity {
 
         }
         //sätt texten för TextView i layouten
-        myLocationText.setText("your current position is: n\n"+ latlongText);
+        //myLocationText.setText("your current position is: n\n"+ latlongText);
     }
     //
 
@@ -164,12 +170,12 @@ public class MainActivity extends AppCompatActivity {
 
     protected void onPause() {
         super.onPause();
-        mMapView.pause();
+        //mMapView.pause();
     }
 
     protected void onResume() {
         super.onResume();
-        mMapView.unpause();
+       //mMapView.unpause();
     }
 
     @Override
