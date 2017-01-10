@@ -17,8 +17,15 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
 import com.esri.android.map.GraphicsLayer;
 import com.esri.android.map.MapOptions;
 import com.esri.android.map.MapView;
@@ -27,6 +34,10 @@ import com.esri.core.geometry.Point;
 import com.esri.core.geometry.SpatialReference;
 import com.esri.core.map.Graphic;
 import com.esri.core.symbol.SimpleMarkerSymbol;
+
+import java.text.DecimalFormat;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -45,10 +56,57 @@ public class MainActivity extends AppCompatActivity {
     final MapOptions mGrayBasemap = new MapOptions(MapOptions.MapType.GRAY);
     final MapOptions mOceansBasemap = new MapOptions(MapOptions.MapType.OCEANS);
 
+    Button report;
+    EditText comment;
+    String server_url = "http://10.0.2.2/gavle/update_info.php";
+    Location loc;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        report = (Button)findViewById(R.id.button);
+        comment = (EditText)findViewById(R.id.editTest);
+
+        report.setOnClickListener(new View.OnClickListener() {
+            @Override
+                public void onClick (View view) {
+                    //uppkopplingen mot servern
+                StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                        server_url,
+                        new Response.Listener<String>() {
+                            @Override
+                            public void onResponse(String response) {
+
+                            }
+                        }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(MainActivity.this, "Error...", Toast.LENGTH_SHORT).show();
+                        error.printStackTrace();
+                    }
+                }){
+                    @Override
+                    protected Map<String, String> getParams() throws AuthFailureError {
+                        Map<String, String> params = new HashMap<>();
+                        if(loc != null){
+                            DecimalFormat df = new DecimalFormat("#,########");
+                            params.put ("longitud", df.format(loc.getLongitude()));
+                            params.put ("latitud",df.format(loc.getLatitude()));
+                        }else{
+                            params.put ("longitud","0");
+                            params.put ("latitud","0");
+                        }
+
+                        params.put("comment", comment.getText().toString());
+                        return params;
+                    }
+                };
+                MySingleton.getInstance(MainActivity.this).addToRequestQueue(stringRequest);
+            }
+        });
+
 
         //
 
@@ -136,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         //hämta senaste long och lat
-        Location loc = locationManager.getLastKnownLocation(provider);
+        loc = locationManager.getLastKnownLocation(provider);
         //metod som visar våran nya position
         updateWithNewLocation(loc);
 
@@ -233,11 +291,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    //metod för att ta oss till settings
-    public void actsettings(View view){
-        //intent för att anropa aktivitet
-        Intent intent = new Intent(this,settings.class);
-        startActivity(intent);
-    }
+
 
 }

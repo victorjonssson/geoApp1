@@ -8,18 +8,11 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
-
-    <uses-feature
-        android:glEsVersion="0x00020000"
-        android:required="true" />
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
         android:required="true" />
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -35,7 +28,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".ProblemActivity" />
-        <activity android:name=".settings" />
         <activity android:name=".help"></activity>
     </application>
 

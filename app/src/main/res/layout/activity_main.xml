@@ -35,17 +35,6 @@
         android:onClick="actreportaproblem" />
 
     <Button
-        android:text="@string/settings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnSettings"
-        android:onClick="actsettings"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="17dp" />
-
-    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/help"
@@ -55,6 +44,16 @@
         android:layout_alignBottom="@+id/btnReport"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btnSettings"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="12dp"
+        android:id="@+id/textView4" />
 
 
 </RelativeLayout>

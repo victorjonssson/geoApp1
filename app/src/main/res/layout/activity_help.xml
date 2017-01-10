@@ -22,12 +22,24 @@
         android:onClick="actbackhelp" />
 
     <TextView
-        android:text="@string/helpText"
+        android:text="@string/help1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="38dp"
+        android:id="@+id/textView"
         android:layout_below="@+id/btnBack"
-        android:layout_toRightOf="@+id/btnBack"
-        android:layout_toEndOf="@+id/btnBack"
-        android:layout_marginTop="20dp"
-        android:id="@+id/textView" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="28dp"
+        android:layout_marginEnd="28dp" />
+
+    <TextView
+        android:text="@string/help2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="50dp"
+        android:id="@+id/textView2" />
 </RelativeLayout>
